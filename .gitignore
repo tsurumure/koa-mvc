@@ -1,2 +1,3 @@
 node_modules/
-logs/
+logs/access/
+logs/error/
