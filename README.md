@@ -1,5 +1,5 @@
-# Koa MVC
-这是一套基于 [koa](https://github.com/koajs/koa) 从零开始搭建的 MVC 框架
+# Koa-mvc
+这是一套基于 [koa2](https://github.com/koajs/koa) 从零开始搭建的 MVC 框架
 
 #### 环境 (Environment)
 * NodeJS `v10.13.0`
@@ -34,5 +34,5 @@
 $ yarn install
 $ yarn global install nodemon
 $ npm start
-// http://localhost:3000
 ```
+Visit: [http://localhost:3000](http://localhost:3000)
