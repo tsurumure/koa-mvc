@@ -1,0 +1,6 @@
+{{ extend './layout.art' }}
+{{ block 'content' }}
+<div class="error-bar">
+    <h1>({{ status }}) {{ msg }}</h1>
+</div>
+{{ /block }}

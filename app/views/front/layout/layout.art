@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>koa-mvc</title>
+    <title>{{ if title }}{{title}} - {{ /if }}koa-mvc</title>
     <link rel="stylesheet/less" href="/css/default.less">
     <script src="/js/lib/less.min.js"></script>
     <script src="/js/lib/jquery.min.js"></script>

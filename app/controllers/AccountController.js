@@ -13,11 +13,10 @@ class AccountController {
             ctx.render('front/auth', { ctx })
         }
     }
-
     // [View] 登录
     @decorator.Request({ url: '/login', method: decorator.RequestMethod.GET })
     async login(ctx) {
-        ctx.render('front/login', { ctx })
+        ctx.render('front/login', { ctx, title: 'Login' })
     }
 
   // test
@@ -38,7 +37,7 @@ class AccountController {
         var captcha = svgCaptcha.create({
             size: 4, fontSize: 30, noise: 4, color: true, width: 90, height: 40
         })
-        ctx.session.captcha_text = captcha.text
+        ctx.session.captcha_text = captcha.text.toLowerCase()
         ctx.type = 'svg'
         ctx.body = captcha.data
     }

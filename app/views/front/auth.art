@@ -1,6 +1,6 @@
 {{ extend './layout/layout.art' }}
 {{ block 'content' }}
 <div class="container-bar">
-    <h1>auth</h1>
+    <h1>auth - 已登录</h1>
 </div>
 {{ /block }}

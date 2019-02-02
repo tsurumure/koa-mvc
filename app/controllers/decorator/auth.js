@@ -7,14 +7,16 @@ module.exports = (ctx) => {
         if (token) {
             jwt.verify(token, 'secret', function(err, decoded) {
                 if (err) {
-                    ctx.body = { status: 10401, msg: 'token 已过期' }
+                    // ctx.body = { status: 10401, msg: 'token 已过期' }
+                    ctx.render('front/layout/error', { ctx, status: 10401, msg: 'token 已过期' })
                     resolve(false)
                 }
                 if (decoded) { resolve(decoded) }
             })
         } else {
             resolve(false)
-            ctx.body = { status: 401, msg: '未登录' }
+            // ctx.body = { status: 401, msg: '未登录' }
+            ctx.render('front/layout/error', { ctx, status: 401, msg: '未登录' })
         }
     })
 }
