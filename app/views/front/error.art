@@ -1,0 +1,10 @@
+<style>
+    * { margin: 0; padding: 0; }
+    body { background: #f8f8f8; padding: 20px; }
+    .page-error h1 { font-size: 18px;  margin-bottom: 5px; }
+    .page-error p { font-size: 14px; }
+</style>
+<div class="page-error">
+    <h1><%= $name +'(' + $status + ')' %></h1>
+    <p>Message: <%= message %></p>
+</div>

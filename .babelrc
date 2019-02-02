@@ -1,0 +1,16 @@
+{
+    "plugins": [
+        "transform-decorators-legacy"
+    ]
+
+    // "transform-decorators-legacy", "add-module-exports"
+    // "plugins": [
+    //     [
+    //         "@babel/plugin-proposal-decorators",
+    //         {
+    //         "legacy": true
+    //         }
+    //     ],
+    //     "add-module-exports"
+    // ]
+}

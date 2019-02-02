@@ -1,0 +1,73 @@
+{{ extend './layout/layout.art' }}
+{{ block 'content' }}
+
+    <div class="Page-login">
+        <h2>Login</h2>
+        <div id="form">
+          <p><input type="text" placeholder="username.." id="username" name="username" value="admin"></p>
+          <p><input type="password" placeholder="password.." id="password" name="password" value="123456"></p>
+          <p>
+            <input type="text" placeholder="captcha.." style="float: left; width: 60px;">
+            <img src="/account/captcha" onclick="{$(event.target).attr('src','/account/captcha?'+Math.random())}">
+          </p>
+
+          <p><button id="submit">login</button></p>
+          <p><button id="logout">logout</button></p>
+          <br>
+          <p><button id="getInfo">getInfo</button></p>
+          <p><button id="test">test</button></p>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#submit').on('click', function () {
+                const data = {
+                    username: document.querySelector('#username').value,
+                    password: document.querySelector('#password').value
+                }
+                $.ajax({
+                    type: 'post',  url: '/api/account/login', data,
+                    success: function (rs) {
+                        console.log(rs)
+                        if (rs.token) {
+                            localStorage.setItem('token', rs.token)
+                        }
+                    }
+                })
+            })
+            $('#getInfo').on('click', function () {
+                $.ajax({
+                    type: 'get', url: '/api/account/info',
+                    headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+                    success: function (rs) {
+                        console.log(rs)
+                    }
+                })
+            })
+
+            $('#logout').on('click', function () {
+                $.ajax({
+                    type: 'get', url: '/api/account/logout',
+                    headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+                    success: function (rs) {
+                        console.log(rs)
+                        localStorage.removeItem('token')
+                    }
+                })
+            })
+
+            $('#test').on('click', function () {
+                $.ajax({
+                    type: 'get', url: '/api/common/test',
+                    // headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
+                    success: function (rs) {
+                        console.log(rs)
+                    }
+                })
+            })
+
+        })
+    </script>
+
+{{ /block }}

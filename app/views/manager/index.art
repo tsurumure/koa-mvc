@@ -1,0 +1,4 @@
+{{ extend './layout/layout.art' }}
+{{ block 'content' }}
+index
+{{ /block }}

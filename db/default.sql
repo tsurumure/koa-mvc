@@ -1,0 +1,7 @@
+use test;
+CREATE TABLE IF NOT EXISTS `pets` (
+    `id` VARCHAR(50) NOT NULL,
+    `name` VARCHAR(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+

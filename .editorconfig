@@ -1,0 +1,8 @@
+root = true
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true		// 最后一行留换行符
+trim_trailing_whitespace = true   // 去除文本尾部的空格
