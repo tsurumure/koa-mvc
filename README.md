@@ -35,4 +35,4 @@ $ yarn install
 $ yarn global install nodemon
 $ npm start
 ```
-Visit: [http://localhost:3000](http://localhost:3000)
+[http://localhost:3000](http://localhost:3000)
