@@ -1,0 +1,9 @@
+
+<div class="navigation-bar">
+    <ul>
+        <li><a href="/" class="{{if ctx && ctx.request.url == '/' }} active {{/if}}">Home</a></li>
+        <li><a href="/about" class="{{if ctx && ctx.request.url == '/about' }} active {{/if}}">About</a></li>
+        <li><a href="/account" class="{{if ctx && ctx.request.url == '/account' }} active {{/if}}">Account (need login)</a></li>
+        <li><a href="/account/login" class="{{if ctx && ctx.request.url == '/account/login' }} active {{/if}}">Login</a></li>
+    </ul>
+</div>

@@ -8,7 +8,7 @@
 
 #### 特点 (Feature)
 1. 使用 koa-jwt + jsonwebtoken 的登录验证方式，适用于`MVC`, `RestfulAPI` 的项目架构
-2. 使用 ES7 装饰器语法 `decorator` 来写控制器
+2. 使用 ES7 装饰器语法 `decorator` 优(zhuāng)雅(bī)地编写路由和控制器
 3. 使用 Sequelize + MySQL 的 ORM 框架
 
 #### 中间件 (Middlewares)
@@ -24,7 +24,6 @@
    * middleware `Middleware Groups`
    * sequelize `ORM for MySQL`
    * views `Art-template View`
-* db `MySQL config`
 * logs `Koa-logger logs`
 * static
 * test `Describe it here with Mocha`

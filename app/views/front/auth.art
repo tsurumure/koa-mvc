@@ -1,6 +1,6 @@
 {{ extend './layout/layout.art' }}
 {{ block 'content' }}
 <div class="container-bar">
-    <h2>about</h2>
+    <h1>auth</h1>
 </div>
 {{ /block }}

@@ -1,11 +1,6 @@
 {{ extend './layout/layout.art' }}
-
-
 {{ block 'content' }}
-
-{{ include './include/nav.art' }}
-<div>
-  <h1>index, {{ title }} 2</h1>
-  <a href="/about">about</a>
+<div class="container-bar">
+    <h1>index</h1>
 </div>
 {{ /block }}

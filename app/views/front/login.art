@@ -1,6 +1,6 @@
 {{ extend './layout/layout.art' }}
 {{ block 'content' }}
-
+<div class="container-bar">
     <div class="Page-login">
         <h2>Login</h2>
         <div id="form">
@@ -69,5 +69,5 @@
 
         })
     </script>
-
+</div>
 {{ /block }}

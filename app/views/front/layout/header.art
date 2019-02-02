@@ -1,0 +1,4 @@
+<div class="header-bar">
+    <h1 class="logo"><a href="/">koa-mvc</a></h1>
+    {{ include './nav.art' }}
+</div>

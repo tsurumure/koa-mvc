@@ -5,10 +5,19 @@ const Models = require('../sequelize/models')
 @decorator.Controller({ prefix: '/account' })
 class AccountController {
 
+
+    // [View] （需要登录访问）
+    @decorator.Request({ url: '/', method: decorator.RequestMethod.GET })
+    async auth(ctx) {
+        if (await auth(ctx)) {
+            ctx.render('front/auth', { ctx })
+        }
+    }
+
     // [View] 登录
     @decorator.Request({ url: '/login', method: decorator.RequestMethod.GET })
     async login(ctx) {
-        ctx.render('front/login')
+        ctx.render('front/login', { ctx })
     }
 
   // test
