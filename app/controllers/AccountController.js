@@ -5,27 +5,18 @@ const Models = require('../sequelize/models')
 @decorator.Controller({ prefix: '/account' })
 class AccountController {
 
-
     // [View] （需要登录访问）
     @decorator.Request({ url: '/', method: decorator.RequestMethod.GET })
+    @auth()
     async auth(ctx) {
-        if (await auth(ctx)) {
-            ctx.render('front/auth', { ctx })
-        }
+        ctx.render('front/auth', { ctx })
     }
+
     // [View] 登录
     @decorator.Request({ url: '/login', method: decorator.RequestMethod.GET })
     async login(ctx) {
+        console.log(ctx.session.token)
         ctx.render('front/login', { ctx, title: 'Login' })
-    }
-
-  // test
-    @decorator.Request({ url: '/test', method: decorator.RequestMethod.GET })
-    async test(ctx) {
-        if (await auth(ctx)) {
-            const users = await Models.Users.findByPk(1)
-            ctx.body = 'hi, ' + users.username
-        }
     }
 
     // [GET] 图形验证码

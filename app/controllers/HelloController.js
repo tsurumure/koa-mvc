@@ -1,4 +1,5 @@
 const decorator = require('./decorator')
+const auth = require('./decorator/auth')
 
 @decorator.Controller({ prefix: '/hello' })
 class HelloController{

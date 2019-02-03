@@ -9,6 +9,10 @@ const middleware = require('./app/middleware')
 require('koa-validate')(app)
 
 
+
+
+
+
 // Logs
 const { log, accessLogger } = require('./logs/config')
 app.use(accessLogger())
@@ -59,6 +63,10 @@ ctls.forEach(router => {
 //   username: 'bbb', password: '123456',
 //   createdAt: now, updatedAt: now
 // })
+
+
+
+
 
 
 

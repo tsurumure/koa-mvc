@@ -10,14 +10,17 @@
             <input type="text" placeholder="captcha.." id="captcha" style="float: left; width: 60px;">
             <img src="/account/captcha" onclick="{$(event.target).attr('src','/account/captcha?'+Math.random())}">
           </p>
-
           <p><button id="login">login</button></p>
-          <p><button id="logout">logout</button></p>
           <br>
-          <p><button id="getInfo">getInfo</button></p>
           <p><button id="commonApi">Common API</button></p>
-
         </div>
+
+        <div id="logined">
+            <p>hi, <span id="uname"></span></p><br>
+            <p><button id="logout">logout</button></p>
+            <p><button id="getInfo">getInfo</button></p>
+        </div>
+
     </div>
     <script src="/js/lib/md5.min.js"></script>
     <script>
@@ -26,15 +29,25 @@
             $('#login').on('click', function () {
                 const data = {
                     username: $('#username').val(),
-                    password: md5($('#password').val()),
+                    password: $('#password').val() ? md5($('#password').val()) : '',
                     captcha: $('#captcha').val()
                 }
                 $.ajax({
                     type: 'post',  url: '/api/account/login', data,
                     success: function (rs) {
                         console.log(rs)
-                        if (rs.token) {
+                        if (rs.status == 200) {
                             localStorage.setItem('token', rs.token)
+                            $('.Page-login #form').hide()
+                            $('.Page-login #logined').show().find('#uname').html(data.username)
+                        } else {
+                            if (rs.status == 10203) {
+                                rs.data.forEach(function(item) {
+                                    alert(Object.values(item).join(','))
+                                })
+                            } else {
+                                alert(rs.msg)
+                            }
                         }
                     }
                 })
@@ -50,12 +63,15 @@
             })
 
             $('#logout').on('click', function () {
+                console.log(1)
                 $.ajax({
                     type: 'get', url: '/api/account/logout',
                     headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
                     success: function (rs) {
                         console.log(rs)
                         localStorage.removeItem('token')
+                        $('.Page-login #form').show()
+                        $('.Page-login #logined').hide()
                     }
                 })
             })
